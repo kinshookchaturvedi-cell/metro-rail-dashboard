@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metro Rail Projects Dashboard - India & World</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>🚇 Metro Rail Projects Dashboard</h1>
+      <p class="subtitle">Real-time Status of Metro Projects in India & Around the World</p>
+      <p class="last-updated">Last Updated: <span id="lastUpdated">Loading...</span></p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-container">
+      <button class="nav-btn active" data-region="all">All Projects</button>
+      <button class="nav-btn" data-region="india">India</button>
+      <button class="nav-btn" data-region="world">World</button>
+    </div>
+  </nav>
+
+  <main>
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="Search metro projects..." class="search-box">
+      <select id="statusFilter" class="filter-select">
+        <option value="">All Status</option>
+        <option value="completed">Completed</option>
+        <option value="ongoing">Ongoing</option>
+        <option value="planned">Planned</option>
+        <option value="delayed">Delayed</option>
+      </select>
+    </div>
+
+    <div id="projectsContainer" class="projects-grid"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Metro Rail Projects Dashboard | Auto-updated from data source</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
