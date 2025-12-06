@@ -3,43 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Metro Rail Projects Dashboard - India & World</title>
+  <title>Metro Rail Hub - Global Metro Systems Database</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <div class="header-container">
-      <h1>🚇 Metro Rail Projects Dashboard</h1>
-      <p class="subtitle">Real-time Status of Metro Projects in India & Around the World</p>
-      <p class="last-updated">Last Updated: <span id="lastUpdated">Loading...</span></p>
+    <div class="header-content">
+      <div class="header-left">
+        <h1>🌐 Metro Rail Hub</h1>
+        <p class="tagline">Comprehensive Global Metro Systems & Project Database</p>
+      </div>
+      <div class="header-right">
+        <p class="timestamp">🕐 Last Updated: <span id="lastUpdated">Loading...</span></p>
+      </div>
     </div>
   </header>
 
-  <nav>
+  <nav class="main-nav">
     <div class="nav-container">
-      <button class="nav-btn active" data-region="all">All Projects</button>
-      <button class="nav-btn" data-region="india">India</button>
-      <button class="nav-btn" data-region="world">World</button>
+      <button class="nav-btn active" data-view="projects">🚇 Projects</button>
+      <button class="nav-btn" data-view="metros">📍 Metro Systems</button>
+      <button class="nav-btn" data-view="news">📰 News & Updates</button>
+      <button class="nav-btn" data-view="jobs">💼 Job Opportunities</button>
+      <button class="nav-btn" data-view="technologies">⚙️ Technologies</button>
     </div>
   </nav>
 
-  <main>
-    <div class="filters">
-      <input type="text" id="searchInput" placeholder="Search metro projects..." class="search-box">
-      <select id="statusFilter" class="filter-select">
-        <option value="">All Status</option>
-        <option value="completed">Completed</option>
-        <option value="ongoing">Ongoing</option>
-        <option value="planned">Planned</option>
-        <option value="delayed">Delayed</option>
-      </select>
-    </div>
+  <main id="mainContent">
+    <!-- PROJECTS VIEW -->
+    <section id="projectsView" class="view-section">
+      <div class="view-header">
+        <h2>🚀 Metro Projects</h2>
+        <p>Active, Planned & Upcoming Metro Rail Projects Worldwide</p>
+      </div>
 
-    <div id="projectsContainer" class="projects-grid"></div>
+      <div class="filters-container">
+        <div class="filter-group">
+          <button class="region-btn active" data-region="all">All Regions</button>
+          <button class="region-btn" data-region="india">🇮🇳 India</button>
+          <button class="region-btn" data-region="asia">🌏 Asia</button>
+          <button class="region-btn" data-region="europe">🇪🇺 Europe</button>
+          <button class="region-btn" data-region="americas">🌎 Americas</button>
+        </div>
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="🔍 Search by project, city..." class="search-box">
+          <select id="statusFilter" class="filter-select">
+            <option value="">📊 All Status</option>
+            <option value="completed">✅ Completed</option>
+            <option value="ongoing">🔄 Ongoing</option>
+            <option value="planned">📋 Planned</option>
+            <option value="delayed">⏸️ Delayed</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="projectsContainer" class="projects-grid"></div>
+    </section>
+
+    <!-- METROS VIEW -->
+    <section id="metrosView" class="view-section" style="display:none;">
+      <div class="view-header">
+        <h2>📍 Active Metro Systems</h2>
+        <p>Existing Metro Networks & Expansion Plans by City</p>
+      </div>
+      <div class="filter-group" style="margin-bottom: 30px;">
+        <button class="metro-region-btn active" data-region="all">All</button>
+        <button class="metro-region-btn" data-region="india">India</button>
+        <button class="metro-region-btn" data-region="world">World</button>
+      </div>
+      <div id="metrosContainer" class="metros-grid"></div>
+    </section>
+
+    <!-- NEWS VIEW -->
+    <section id="newsView" class="view-section" style="display:none;">
+      <div class="view-header">
+        <h2>📰 Latest News & Updates</h2>
+        <p>Recent News, Announcements & Updates from Metro Systems</p>
+      </div>
+      <div id="newsContainer" class="news-grid"></div>
+    </section>
+
+    <!-- JOBS VIEW -->
+    <section id="jobsView" class="view-section" style="display:none;">
+      <div class="view-header">
+        <h2>💼 Job Opportunities</h2>
+        <p>Career Opportunities in Metro Rail Organizations Worldwide</p>
+      </div>
+      <div class="job-filters">
+        <input type="text" id="jobSearch" placeholder="🔍 Search jobs..." class="search-box">
+        <select id="jobCategory" class="filter-select">
+          <option value="">All Positions</option>
+          <option value="engineering">🔧 Engineering</option>
+          <option value="operations">📋 Operations</option>
+          <option value="management">👔 Management</option>
+          <option value="support">🤝 Support</option>
+        </select>
+      </div>
+      <div id="jobsContainer" class="jobs-grid"></div>
+    </section>
+
+    <!-- TECHNOLOGIES VIEW -->
+    <section id="technologiesView" class="view-section" style="display:none;">
+      <div class="view-header">
+        <h2>⚙️ Metro Technologies & Systems</h2>
+        <p>Technologies, Rolling Stock & Systems Used in Different Metro Networks</p>
+      </div>
+      <div id="technologiesContainer" class="technologies-grid"></div>
+    </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Metro Rail Projects Dashboard | Auto-updated from data source</p>
+    <div class="footer-content">
+      <p>&copy; 2025 Metro Rail Hub | Global Metro Systems Database | Auto-updated Every 5 Minutes</p>
+      <p>📚 Comprehensive resource for metro enthusiasts, professionals & job seekers</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
