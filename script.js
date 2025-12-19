@@ -1,5 +1,4 @@
 // Sample Metro Projects Data
-
 const metroProjects = [
   // India Metro Projects
   {
@@ -131,6 +130,7 @@ let filteredProjects = metroProjects;
 // Initialize Dashboard
 document.addEventListener('DOMContentLoaded', () => {
   setupEventListeners();
+  updateKPIs(metroProjects);
   displayProjects(metroProjects);
   updateLastUpdated();
   startAutoUpdate();
@@ -141,7 +141,7 @@ function setupEventListeners() {
   const navButtons = document.querySelectorAll('.nav-btn');
   const searchInput = document.getElementById('searchInput');
   const statusFilter = document.getElementById('statusFilter');
-
+  
   navButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
       navButtons.forEach(b => b.classList.remove('active'));
@@ -150,37 +150,49 @@ function setupEventListeners() {
       filterAndDisplayProjects();
     });
   });
-
+  
   searchInput.addEventListener('input', filterAndDisplayProjects);
   statusFilter.addEventListener('change', filterAndDisplayProjects);
+}
+
+// Calculate and Display KPIs
+function updateKPIs(projects) {
+  const totalProjects = projects.length;
+  const totalKm = projects.reduce((sum, p) => sum + p.lengthKm, 0).toFixed(1);
+  const completedCount = projects.filter(p => p.status === 'completed').length;
+  const ongoingCount = projects.filter(p => p.status === 'ongoing').length;
+  
+  document.getElementById('totalProjects').textContent = totalProjects;
+  document.getElementById('totalKm').textContent = totalKm;
+  document.getElementById('completedCount').textContent = completedCount;
+  document.getElementById('ongoingCount').textContent = ongoingCount;
 }
 
 // Filter and Display Projects
 function filterAndDisplayProjects() {
   const searchTerm = document.getElementById('searchInput').value.toLowerCase();
   const statusTerm = document.getElementById('statusFilter').value;
-
+  
   filteredProjects = metroProjects.filter(project => {
     const matchRegion = currentRegion === 'all' || project.region === currentRegion;
     const matchSearch = project.name.toLowerCase().includes(searchTerm) ||
-                       project.city.toLowerCase().includes(searchTerm);
+                        project.city.toLowerCase().includes(searchTerm);
     const matchStatus = !statusTerm || project.status === statusTerm;
-
     return matchRegion && matchSearch && matchStatus;
   });
-
+  
   displayProjects(filteredProjects);
+  updateResultCount();
 }
 
 // Display Projects
 function displayProjects(projects) {
   const container = document.getElementById('projectsContainer');
-
   if (projects.length === 0) {
-    container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: white;">No projects found</div>';
+    container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: white;">No projects found matching your criteria</div>';
     return;
   }
-
+  
   container.innerHTML = projects.map(project => `
     <div class="project-card ${project.status}">
       <div class="project-header">
@@ -209,6 +221,13 @@ function displayProjects(projects) {
   `).join('');
 }
 
+// Update Result Count
+function updateResultCount() {
+  const count = filteredProjects.length;
+  const total = metroProjects.length;
+  document.getElementById('resultCount').textContent = `Showing ${count} of ${total} projects`;
+}
+
 // Update Last Updated Time
 function updateLastUpdated() {
   const now = new Date();
@@ -227,7 +246,8 @@ function updateLastUpdated() {
 function startAutoUpdate() {
   setInterval(() => {
     updateLastUpdated();
-    // In production, fetch data from remote source here
-    console.log('Auto-update triggered - would fetch latest data from remote source');
+    updateKPIs(metroProjects);
+    filterAndDisplayProjects();
+    console.log('Auto-update triggered - data refreshed');
   }, 5 * 60 * 1000); // 5 minutes
 }
