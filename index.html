@@ -1,47 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Metro Rail Projects Dashboard - India & World</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Rail Projects Dashboard - India & World | Global Metro Network Tracker</title>
+    <meta name="description" content="Real-time dashboard tracking metro rail projects globally. View projects in India and worldwide, track status (completed, ongoing, planned, delayed), investment amounts, and completion timelines.">
+    <meta name="keywords" content="metro rail, subway, rapid transit, India metro, global metro projects, DMRC, metro expansion">
+    <meta name="author" content="Metro Rail Projects Dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <div class="header-container">
-      <h1>🚇 Metro Rail Projects Dashboard</h1>
-      <p class="subtitle">Real-time Status of Metro Projects in India & Around the World</p>
-      <p class="last-updated">Last Updated: <span id="lastUpdated">Loading...</span></p>
-    </div>
-  </header>
+    <header>
+        <div class="header-container">
+            <h1>🚇 Metro Rail Projects Dashboard</h1>
+            <p class="tagline">Global Metro Network Intelligence Platform</p>
+            <p class="subtitle">Real-time Status of Metro Projects in India & Around the World</p>
+            <p class="last-updated">Last Updated: <span id="lastUpdated">Loading...</span></p>
+        </div>
+    </header>
 
-  <nav>
-    <div class="nav-container">
-      <button class="nav-btn active" data-region="all">All Projects</button>
-      <button class="nav-btn" data-region="india">India</button>
-      <button class="nav-btn" data-region="world">World</button>
-    </div>
-  </nav>
+    <!-- KPI Stats Bar -->
+    <section class="kpi-section">
+        <div class="kpi-container">
+            <div class="kpi-card">
+                <div class="kpi-value" id="totalProjects">0</div>
+                <div class="kpi-label">Total Projects</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value" id="totalKm">0</div>
+                <div class="kpi-label">Total km</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value" id="completedCount">0</div>
+                <div class="kpi-label">Completed</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value" id="ongoingCount">0</div>
+                <div class="kpi-label">Ongoing</div>
+            </div>
+        </div>
+    </section>
 
-  <main>
-    <div class="filters">
-      <input type="text" id="searchInput" placeholder="Search metro projects..." class="search-box">
-      <select id="statusFilter" class="filter-select">
-        <option value="">All Status</option>
-        <option value="completed">Completed</option>
-        <option value="ongoing">Ongoing</option>
-        <option value="planned">Planned</option>
-        <option value="delayed">Delayed</option>
-      </select>
-    </div>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-section">
+                <span class="nav-title">View by Region:</span>
+                <button class="nav-btn active" data-region="all">All Projects</button>
+                <button class="nav-btn" data-region="india">India</button>
+                <button class="nav-btn" data-region="world">World</button>
+            </div>
+        </div>
+    </nav>
 
-    <div id="projectsContainer" class="projects-grid"></div>
-  </main>
+    <main>
+        <div class="filters-container">
+            <div class="filters">
+                <input type="text" id="searchInput" placeholder="Search metro projects by name or city..." class="search-box" aria-label="Search projects">
+                <select id="statusFilter" class="filter-select" aria-label="Filter by status">
+                    <option value="">All Status</option>
+                    <option value="completed">Completed</option>
+                    <option value="ongoing">Ongoing</option>
+                    <option value="planned">Planned</option>
+                    <option value="delayed">Delayed</option>
+                </select>
+            </div>
+            <div class="filter-info">
+                <span id="resultCount">Loading...</span>
+            </div>
+        </div>
 
-  <footer>
-    <p>&copy; 2025 Metro Rail Projects Dashboard | Auto-updated from data source</p>
-  </footer>
+        <div id="projectsContainer" class="projects-grid" role="main" aria-live="polite"></div>
+    </main>
 
-  <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2025 Metro Rail Projects Dashboard | Global Metro Network Intelligence</p>
+        <p class="footer-links">Data updated automatically | <a href="#" title="About this dashboard">About</a> | <a href="#" title="Data sources">Sources</a></p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
