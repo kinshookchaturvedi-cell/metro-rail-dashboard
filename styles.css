@@ -21,19 +21,70 @@ header {
 
 header h1 {
   font-size: 2.5em;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-weight: 700;
+}
+
+.tagline {
+  font-size: 1.1em;
+  opacity: 0.95;
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .subtitle {
   font-size: 1.2em;
   opacity: 0.95;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .last-updated {
   font-size: 0.9em;
   opacity: 0.8;
+}
+
+/* KPI Stats Section */
+.kpi-section {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px 20px;
+  margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.kpi-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.kpi-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  border-left: 4px solid #667eea;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.kpi-value {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 10px;
+}
+
+.kpi-label {
+  font-size: 0.95em;
+  color: #666;
+  font-weight: 600;
 }
 
 nav {
@@ -48,10 +99,20 @@ nav {
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  gap: 20px;
   padding: 0 20px;
-  justify-content: center;
+}
+
+.nav-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.nav-title {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95em;
 }
 
 .nav-btn {
@@ -68,6 +129,7 @@ nav {
 .nav-btn:hover {
   background: #667eea;
   color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .nav-btn.active {
@@ -81,10 +143,14 @@ main {
   padding: 0 20px;
 }
 
+.filters-container {
+  margin-bottom: 30px;
+}
+
 .filters {
   display: flex;
   gap: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   flex-wrap: wrap;
 }
 
@@ -107,6 +173,13 @@ main {
   outline: none;
   border-color: #667eea;
   box-shadow: 0 0 8px rgba(102, 126, 234, 0.2);
+}
+
+.filter-info {
+  font-size: 0.95em;
+  color: #666;
+  padding: 10px 0;
+  font-weight: 500;
 }
 
 .projects-grid {
@@ -151,6 +224,7 @@ main {
   justify-content: space-between;
   align-items: start;
   margin-bottom: 15px;
+  gap: 10px;
 }
 
 .project-title {
@@ -167,6 +241,7 @@ main {
   font-size: 0.8em;
   font-weight: 600;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .status-completed {
@@ -217,31 +292,90 @@ footer {
   background: #333;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 30px 20px;
   margin-top: 40px;
+}
+
+footer p {
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  font-size: 0.9em;
+}
+
+.footer-links a {
+  color: #667eea;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  color: #764ba2;
 }
 
 @media (max-width: 768px) {
   header h1 {
     font-size: 1.8em;
   }
-  
-  .nav-container {
-    flex-wrap: wrap;
-    gap: 10px;
+
+  .tagline {
+    font-size: 1em;
   }
-  
+
+  .subtitle {
+    font-size: 1em;
+  }
+
+  .kpi-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .nav-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-btn {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
+
   .filters {
     flex-direction: column;
   }
-  
+
   .search-box,
   .filter-select {
     width: 100%;
   }
-  
+
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-header {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 20px 15px;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  .kpi-value {
+    font-size: 2em;
+  }
+
+  .kpi-card {
+    padding: 15px;
   }
 }
 
