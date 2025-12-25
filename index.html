@@ -10,6 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
 </head>
+      <!-- Data Status Indicator -->
+  <div id="data-status" style="text-align: center; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-bottom: 2px solid #667eea; font-weight: 500;">
+    <span id="last-update" style="display: inline-block; margin-right: 20px;">📊 Loading data...</span>
+    <button id="refresh-btn" onclick="loadMetroProjects()" style="padding: 6px 15px; background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.4); border-radius: 4px; cursor: pointer; font-weight: bold; transition: 0.3s;">🔄 Refresh Data</button>
+  </div>
 <body>
     <header>
         <div class="header-container">
@@ -76,6 +81,7 @@
     <footer>
         <p>&copy; 2025 Metro Rail Projects Dashboard | Global Metro Network Intelligence</p>
         <p class="footer-links">Data updated automatically | <a href="#" title="About this dashboard">About</a> | <a href="#" title="Data sources">Sources</a></p>
+            <p id="update-info" style="color: #999; font-size: 12px; margin-top: 8px;">Last updated: <span id="update-time">Loading...</span></p>
     </footer>
 
     <script src="script.js"></script>
