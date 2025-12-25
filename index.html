@@ -4,69 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metro Rail Projects Dashboard - India & World | Global Metro Network Tracker</title>
-    <meta name="description" content="Real-time dashboard tracking metro rail projects globally. View projects in India and worldwide, track status (completed, ongoing, planned, delayed), investment amounts, and completion timelines.">
-    <meta name="keywords" content="metro rail, subway, rapid transit, India metro, global metro projects, DMRC, metro expansion">
-    <meta name="author" content="Metro Rail Projects Dashboard">
+    <meta name="description" content="Real-time dashboard tracking metro rail projects globally with interactive filtering and project status tracking">
+    <meta name="keywords" content="metro rail, subway, rapid transit, India metro, global metro, transport infrastructure">
+    <meta name="author" content="Metro Projects Dashboard">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
 </head>
-      <!-- Data Status Indicator -->
-  <div id="data-status" style="text-align: center; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-bottom: 2px solid #667eea; font-weight: 500;">
-    <span id="last-update" style="display: inline-block; margin-right: 20px;">📊 Loading data...</span>
-    <button id="refresh-btn" onclick="loadMetroProjects()" style="padding: 6px 15px; background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.4); border-radius: 4px; cursor: pointer; font-weight: bold; transition: 0.3s;">🔄 Refresh Data</button>
-  </div>
 <body>
     <header>
         <div class="header-container">
             <h1>🚇 Metro Rail Projects Dashboard</h1>
-            <p class="tagline">Global Metro Network Intelligence Platform</p>
-            <p class="subtitle">Real-time Status of Metro Projects in India & Around the World</p>
-            <p class="last-updated">Last Updated: <span id="lastUpdated">Loading...</span></p>
+            <p>Global Metro Network Intelligence Platform</p>
+            <p>Real-time Status of Metro Projects in India & Around the World</p>
+            <p>Last Updated: <span id="update-time">Loading...</span></p>
         </div>
     </header>
 
-    <!-- KPI Stats Bar -->
-    <section class="kpi-section">
+    <div class="kpi-section">
         <div class="kpi-container">
             <div class="kpi-card">
-                <div class="kpi-value" id="totalProjects">0</div>
+                <div class="kpi-value" id="total-projects">0</div>
                 <div class="kpi-label">Total Projects</div>
             </div>
             <div class="kpi-card">
-                <div class="kpi-value" id="totalKm">0</div>
+                <div class="kpi-value" id="total-km">0</div>
                 <div class="kpi-label">Total km</div>
             </div>
             <div class="kpi-card">
-                <div class="kpi-value" id="completedCount">0</div>
+                <div class="kpi-value" id="completed">0</div>
                 <div class="kpi-label">Completed</div>
             </div>
             <div class="kpi-card">
-                <div class="kpi-value" id="ongoingCount">0</div>
+                <div class="kpi-value" id="ongoing">0</div>
                 <div class="kpi-label">Ongoing</div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <nav>
-        <div class="nav-container">
-            <div class="nav-section">
-                <span class="nav-title">View by Region:</span>
-                <button class="nav-btn active" data-region="all">All Projects</button>
-                <button class="nav-btn" data-region="india">India</button>
-                <button class="nav-btn" data-region="world">World</button>
-            </div>
+    <div class="container">
+        <h2>View by Region:</h2>
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterByRegion('All')">All Projects</button>
+            <button class="filter-btn" onclick="filterByRegion('India')">India</button>
+            <button class="filter-btn" onclick="filterByRegion('World')">World</button>
         </div>
-    </nav>
 
-    <main>
         <div class="filters-container">
             <div class="filters">
-                <input type="text" id="searchInput" placeholder="Search metro projects by name or city..." class="search-box" aria-label="Search projects">
+                <input type="text" id="searchInput" placeholder="Search metro projects by name or city..." onkeyup="filterByRegion(currentRegion)">
                 <select id="statusFilter" class="filter-select" aria-label="Filter by status">
                     <option value="">All Status</option>
-                    <option value="completed">Completed</option>
-                    <option value="ongoing">Ongoing</option>
-                    <option value="planned">Planned</option>
+                    <option value="operational">Operational</option>
+                    <option value="under_construction">Under Construction</option>
+                    <option value="proposed">Proposed</option>
                     <option value="delayed">Delayed</option>
                 </select>
             </div>
@@ -75,13 +65,14 @@
             </div>
         </div>
 
-        <div id="projectsContainer" class="projects-grid" role="main" aria-live="polite"></div>
-    </main>
+        <div id="projectsContainer" class="projects-grid" role="main" aria-live="polite">
+            Loading projects...
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2025 Metro Rail Projects Dashboard | Global Metro Network Intelligence</p>
         <p class="footer-links">Data updated automatically | <a href="#" title="About this dashboard">About</a> | <a href="#" title="Data sources">Sources</a></p>
-            <p id="update-info" style="color: #999; font-size: 12px; margin-top: 8px;">Last updated: <span id="update-time">Loading...</span></p>
     </footer>
 
     <script src="script.js"></script>
