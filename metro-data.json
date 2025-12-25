@@ -1,0 +1,20 @@
+{
+  "lastUpdated": "2025-12-25T20:00:00Z",
+  "version": "1.0",
+  "source": "Official metro authorities (DMRC, BMRCL, MMRCL)",
+  "metadata": {
+    "totalProjects": 17,
+    "operationalLines": 14,
+    "totalLengthKm": 611.47,
+    "totalStations": 468
+  },
+  "projects": [
+    {"id": 1, "name": "Red Line (Line 1)", "city": "Delhi", "country": "India", "region": "India", "lineNumber": 1, "lineColor": "#E41E23", "status": "operational", "operationalYear": 2002, "lengthKm": 26.46, "noOfStations": 21, "fromStation": "Rithala", "toStation": "Kundli", "investment": "$3.2B", "description": "Delhi Metro Red Line connecting North Delhi", "lastVerified": "2025-12-19", "source": "DMRC"},
+    {"id": 2, "name": "Yellow Line (Line 2)", "city": "Delhi", "country": "India", "region": "India", "lineNumber": 2, "lineColor": "#FDB913", "status": "operational", "operationalYear": 2004, "lengthKm": 49.06, "noOfStations": 38, "fromStation": "Samaypur Badli", "toStation": "HUDA City Centre", "investment": "$4.8B", "description": "North to South Delhi connection via central Delhi", "lastVerified": "2025-12-19", "source": "DMRC"},
+    {"id": 3, "name": "Blue Line (Line 3)", "city": "Delhi", "country": "India", "region": "India", "lineNumber": 3, "lineColor": "#002DA6", "status": "operational", "operationalYear": 2004, "lengthKm": 37.42, "noOfStations": 30, "fromStation": "Noida City Centre", "toStation": "Vaishali", "investment": "$5.1B", "description": "Delhi to Noida connecting major commercial areas", "lastVerified": "2025-12-19", "source": "DMRC"},
+    {"id": 12, "name": "Purple Line", "city": "Bangalore", "country": "India", "region": "India", "lineNumber": 1, "lineColor": "#6D28BD", "status": "operational", "operationalYear": 2011, "lengthKm": 42.17, "noOfStations": 37, "fromStation": "Challaghatta", "toStation": "Whitefield (Kadugodi)", "investment": "$2.8B", "description": "Bangalore Metro Purple Line Phase 1", "lastVerified": "2025-12-19", "source": "BMRCL"},
+    {"id": 13, "name": "Green Line", "city": "Bangalore", "country": "India", "region": "India", "lineNumber": 2, "lineColor": "#00B050", "status": "operational", "operationalYear": 2015, "lengthKm": 33.03, "noOfStations": 32, "fromStation": "Madavara", "toStation": "Silk Institute", "investment": "$2.5B", "description": "Bangalore Metro Green Line Phase 2", "lastVerified": "2025-12-19", "source": "BMRCL"},
+    {"id": 14, "name": "Yellow Line", "city": "Bangalore", "country": "India", "region": "India", "lineNumber": 3, "lineColor": "#FDB913", "status": "operational", "operationalYear": 2020, "lengthKm": 19.143, "noOfStations": 16, "fromStation": "RV Road", "toStation": "Bommasandra", "investment": "$1.9B", "description": "Bangalore Metro Yellow Line Phase 2", "lastVerified": "2025-12-19", "source": "BMRCL"},
+    {"id": 15, "name": "Blue Line (Line 1)", "city": "Mumbai", "country": "India", "region": "India", "lineNumber": 1, "lineColor": "#002DA6", "status": "operational", "operationalYear": 2006, "lengthKm": 11.4, "noOfStations": 6, "fromStation": "Versova", "toStation": "Ghatkopar", "investment": "$2.1B", "description": "Mumbai Metro Blue Line connecting West to East Mumbai", "lastVerified": "2025-12-19", "source": "MMRCL"}
+  ]
+}
